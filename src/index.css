@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@theme {
+  --font-display: "League Spartan", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-navy: #0D2B45;
+--color-green: #3FA66B;
+--color-green-light: #59B87C;
+--color-gold: #C9962A;
+--color-cream: #FAFAF7;
+--color-mist: #E8ECEF;
+--color-ink: #1A2433;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}

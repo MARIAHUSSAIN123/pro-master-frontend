@@ -1,0 +1,95 @@
+.logoWrapper{
+
+overflow:hidden;
+
+margin-top:60px;
+
+}
+
+.logoTrack{
+
+display:flex;
+
+width:max-content;
+
+animation:scroll 30s linear infinite;
+
+}
+
+.logoWrapper:hover .logoTrack{
+
+animation-play-state:paused;
+
+}
+
+.logoCard{
+
+width:230px;
+
+height:130px;
+
+margin:0 18px;
+
+background:white;
+
+border-radius:22px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+transition:.4s;
+
+border:1px solid #ececec;
+
+}
+
+.logoCard:hover{
+
+transform:translateY(-10px) scale(1.06);
+
+box-shadow:0 25px 45px rgba(0,0,0,.15);
+
+}
+
+.logoCard img{
+
+max-width:140px;
+
+max-height:70px;
+
+object-fit:contain;
+
+filter:grayscale(100%);
+
+transition:.4s;
+
+}
+
+.logoCard:hover img{
+
+filter:none;
+
+transform:scale(1.1);
+
+}
+
+@keyframes scroll{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-50%);
+
+}
+
+}
