@@ -1,8 +1,5 @@
 import axios from "axios";
 
-// Separate token/user keys from the admin panel on purpose — a
-// customer and a staff member could be logged in from the same
-// browser, and they must not overwrite each other's session.
 const TOKEN_KEY = "customerToken";
 const USER_KEY = "customerUser";
 
@@ -16,16 +13,19 @@ customerAPI.interceptors.request.use((config) => {
   return config;
 });
 
-// POST /api/auth/login — shared login endpoint (role comes back in
-// the response; the portal only cares that it's "customer").
 export const customerLogin = async (email, password) => {
   const { data } = await customerAPI.post("/auth/login", { email, password });
   return data;
 };
 
-// POST /api/auth/register-customer — public residential self-signup
 export const customerRegister = async (formData) => {
   const { data } = await customerAPI.post("/auth/register-customer", formData);
+  return data;
+};
+
+// GET /auth/profile — logged-in customer's own profile
+export const getMyProfile = async () => {
+  const { data } = await customerAPI.get("/auth/profile");
   return data;
 };
 
