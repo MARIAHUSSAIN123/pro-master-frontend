@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import PortalLayout from "../components/PortalLayout";
 import StatCard from "../components/StatCard";
-import { getMyProfile } from "../api/customerAuthApi";
+import { getMyProfile } from "../../../api/customerAuthApi";
 import { getMyBookings } from "../api/bookingApi";
 import { getMyQuotes } from "../api/quoteApi";
 import { getMyInvoices } from "../api/invoiceApi";
