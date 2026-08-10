@@ -10,7 +10,7 @@ import axios from "axios";
 //   VITE_API_URL=http://localhost:5000/api
 // Production (Vercel): set VITE_API_URL to your deployed backend URL.
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+baseURL: import.meta.env.VITE_API_URL || "https://pro-master-backend.vercel.app/api",
 });
 
 API.interceptors.request.use((config) => {

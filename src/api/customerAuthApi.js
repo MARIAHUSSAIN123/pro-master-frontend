@@ -7,7 +7,7 @@ const TOKEN_KEY = "customerToken";
 const USER_KEY = "customerUser";
 
 const customerAPI = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+  baseURL: import.meta.env.VITE_API_URL || "https://pro-master-backend.vercel.app/api",
 });
 
 customerAPI.interceptors.request.use((config) => {
@@ -26,7 +26,6 @@ export const customerLogin = async (email, password) => {
 // POST /api/auth/register-customer — public residential self-signup
 export const customerRegister = async (formData) => {
   const { data } = await customerAPI.post("/auth/register-customer", formData);
-  alert(error.response?.data?.message);  // ✅
   return data;
 };
 
@@ -46,6 +45,5 @@ export const customerLogout = () => {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(USER_KEY);
 };
-
 
 export default customerAPI;
