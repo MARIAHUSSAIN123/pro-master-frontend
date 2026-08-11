@@ -68,16 +68,20 @@ export default function PortalDashboard() {
       setLoading(true);
       setError("");
       try {
-        const [profileRes, bookingsRes, quotesRes, invoicesRes] = await Promise.all([
-          getMyProfile(),
-          getMyBookings(),
-          getMyQuotes(),
-          getMyInvoices(),
-        ]);
-
+        // Sequential (not Promise.all) — firing all 4 requests at once
+        // was causing intermittent failures on Vercel's free tier
+        // under concurrent cold-start load. One at a time is slightly
+        // slower but far more reliable.
+        const profileRes = await getMyProfile();
         if (profileRes?.success) setCustomer(profileRes.customer);
+
+        const bookingsRes = await getMyBookings();
         if (bookingsRes?.success) setBookings(bookingsRes.bookings);
+
+        const quotesRes = await getMyQuotes();
         if (quotesRes?.success) setQuotes(quotesRes.quotes);
+
+        const invoicesRes = await getMyInvoices();
         if (invoicesRes?.success) setInvoices(invoicesRes.invoices);
       } catch (err) {
         setError(
