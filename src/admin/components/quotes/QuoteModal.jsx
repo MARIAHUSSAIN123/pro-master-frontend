@@ -173,7 +173,8 @@ export default function QuoteModal({ open, onClose, onSave, saving, customers = 
                         value={line.quantity}
                         onChange={handleLineChange(index, "quantity")}
                         className="h-12 w-24 rounded-xl border border-slate-700 bg-slate-900 px-3 text-white outline-none focus:border-cyan-500"
-                        title="Quantity"
+                        title="Hours"
+                        placeholder="Hours"
                       />
                       <span className="w-24 text-right text-cyan-400 font-semibold">
                         {svc ? `$${(svc.price * (Number(line.quantity) || 1)).toFixed(2)}` : "--"}
