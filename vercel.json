@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://pro-master-backend.vercel.app/api/:path*"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ]
 }
